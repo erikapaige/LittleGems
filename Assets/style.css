@@ -5,6 +5,10 @@ html {
   background-position: center;
 }
 
+.searchbar{
+  background-color: white;
+}
+
 .geoLocation{
   width: auto;
   height:500px;
