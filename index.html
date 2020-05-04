@@ -6,31 +6,40 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.css" media="screen,projection" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link ref="stylesheet" href="./Assets/style.css">
+  <link rel="stylesheet" href="./Assets/reset.css">
+  <link rel="stylesheet" href="./Assets/style.css">
   <title>Little Gems</title>
 </head>
 <body>
-  <div class="containter">
-      <div class="divider"></div>
+  <!-- content of homepage -->
+  <div class="container"> 
+    <!-- Search Bar -->
+    <div class="section">
+      <form>
+        <div id="search">
+          <input type="text" placeholder="Search..." name="search" id="searchInput">
+          <button type="button" id="button">Take me to nearby Little Gems!</button>
+        </div>
+      </form>
+    </div>
+    <div class="divider"></div>
+    <div class="section geoLocation">
+      <h5>Geolocation Image Here</h5>
+      <p>You Are Here</p>
+    </div>
+    <div class="divider"></div>
+    <!-- divs for restaurant cards -->
       <div class="row">
-        <div class="col s12" id="search">Search Bar Goes Here
-      </div>
-      <div class="divider"></div>
-      <div class="row">
-        <div class="col s12">Map Feature Goes Here</div>
-      </div>
-      <div class="divider"></div>
-      <div class="row">
-          <!-- first card -->
+        <!-- first card -->
         <div class="col s12 m3">
           <div class="card">
             <div class="card-image">
-              <img src="images/sample-1.jpg">
+              <img src="" alt="restaurant option 1"">
               <span class="card-title">Card Title</span>
               <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
             </div>
             <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, saepe ea vitae animi harum minima in totam quam. Id accusantium quisquam cupiditate natus, fugiat aperiam eaque dolor quia distinctio ex.</p>
             </div>
           </div>
         </div>
@@ -38,13 +47,12 @@
         <div class="col s12 m3">
           <div class="card">
             <div class="card-image">
-              <img src="images/sample-1.jpg">
+              <img src="" alt="restaurant option 2">
               <span class="card-title">Card Title</span>
               <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
             </div>
             <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require
-                little markup to use effectively.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque deserunt distinctio omnis debitis. Libero doloribus nisi alias neque sed eos illo, labore commodi quisquam enim. Repellat amet et ratione reprehenderit?</p>
             </div>
           </div>
         </div>
@@ -52,47 +60,40 @@
         <div class="col s12 m3">
           <div class="card">
             <div class="card-image">
-              <img src="images/sample-1.jpg">
+              <img src="" alt="restaurant option 3">
               <span class="card-title">Card Title</span>
               <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
             </div>
             <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require
-                little markup to use effectively.</p>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus delectus aspernatur quod vel veritatis, laborum alias dolorum architecto officia cupiditate pariatur fuga voluptatem earum praesentium eaque facilis explicabo deserunt quidem.</p>
+            </div>
             </div>
           </div>
-        </div>
         <!-- fourth card -->
         <div class="col s12 m3">
           <div class="card">
             <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
               <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+              <img src="" alt="restaurant option 4">
+              <span class="card-title">Card Title</span>
+              <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
             </div>
             <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require
-                little markup to use effectively.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores vero alias accusamus nam necessitatibus voluptatum optio id, minima nulla quis, inventore cupiditate excepturi rem recusandae aspernatur, vel a facere quod.</p>
             </div>
           </div>
         </div>
 
-      <!-- closing div for 3rd row -->
+      <!-- closing div for cards row -->
       </div>
-    
-    <!-- <footer class="page-footer">
-      <div class="container">
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-      </div>
-    </footer> -->
 
   <!-- closing div for the container -->
   </div>
 
   
-
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>     
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+  <script src="Assets/script.js"></script>    
 </body>
 </html>
