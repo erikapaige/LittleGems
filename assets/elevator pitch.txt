@@ -1,0 +1,15 @@
+Elevator pitch
+Hole in the Wall
+simple tool to find good restaurants very close to you
+that doesn't get the customers it deserves
+
+uses location api to figure out where you are and finds 
+restaurants nearby that have good reviews (4 stars or higher) 
+but doesn't have a lot of reviews  (100 reviews or less). 
+Then it shows you the best.
+
+Mozilla location api
+yelp api
+yelp gives a $200 credit and subtracts $5 for every 1000
+locations you use
+

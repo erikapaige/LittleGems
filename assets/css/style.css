@@ -1,0 +1,18 @@
+ body {
+   background-color: green;
+ }
+
+ #search {
+   margin-top: 20px;
+ }
+
+ #divCards {
+   display: flex;
+   display: inline-block;
+   flex-wrap: wrap;
+   flex-direction: column;
+ }
+
+ .section {
+   margin-top: 20px;
+ }

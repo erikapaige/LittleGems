@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Gems</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.css" media="screen,projection" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <div id="gem"></div>
+<div class="divider"></div>
+<div class="section">
+  <form>
+    <div id="search">
+    <input type="text" placeholder="Search..." name="search" id = "searchInput">
+      <button type="button" id="button">Take me to nearby Little Gems!</button>
+    </div>
+  </form>
+</div>
+<div class="divider"></div>
+<div class="section">
+  <h5>Geolocation Image Here</h5>
+  <p>You Are Here</p>
+</div>
+<div class="divider"></div>
+<div class="section" id="divCards">
+        <div class="col s4">
+          <div class="row">
+            <div class="col s12 m7">
+              <div class="card" id='placeOne'>
+                <div class="card-image">
+                  <img src=" " alt="restaurant 1" id='imageOne'>
+                  <span class="card-title" id='titleOne'>Card Title</span>
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                  <p id='infoOne'>Info about restaurant including address, rating, and type of cuisine</p>
+                </div>
+                <div class="card-action" id='linkOne'>
+                  <a href="#">Link to restaurant's webpage</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s4">
+        <div class="row">
+          <div class="col s12 m7">
+            <div class="card">
+              <div class="card-image">
+                <img src=" " alt="restaurant 2">
+                <span class="card-title">Card Title</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+              </div>
+              <div class="card-content">
+                <p>Info about restaurant including address, rating, and type of cuisine.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Link to restaurant's webpage</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col s4">
+        <div class="row">
+          <div class="col s12 m7">
+            <div class="card">
+              <div class="card-image">
+                <img src=" " alt="restaurant 3">
+                <span class="card-title">Card Title</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+              </div>
+              <div class="card-content">
+                <p>Info about restaurant including address, rating, and type of cuisine</p>
+              </div>
+              <div class="card-action">
+                <a href="#">Link to restaurant's webpage</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      
+      </div>
+</div>
+  <script type="text/javascript" src="./materialize/js/materialize.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="./assets/javascript/script.js"></script>
+</body>
+</html>
