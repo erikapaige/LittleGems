@@ -1,16 +1,29 @@
 html {
-  background-image: url("./background-image.jpeg");
+  /* background-image: url("./background-image.jpeg"); */
+  background-image: url("./background-gems.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-.searchbar{
-  background-color: white;
+.searchButton {
+  margin: 0px 0px 8px;
 }
 
-.geoLocation{
+.geoLocation {
   width: auto;
-  height:500px;
-  background-color: white;
+  height: 500px;
+  padding: 15px 0px;
+  background-image: url("./placeholder-map.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* .card {
+  height: 400px;
+  overflow: hidden;
+} */
+
+.card-title {
+  padding: 10px 20px 10px 20px;
 }
