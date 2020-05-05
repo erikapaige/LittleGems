@@ -9,19 +9,18 @@ let irvine = {
 // Initialize and add the map
 function initMap() {
  //get users location and assigns it to empty object created earlier.
- navigator.geolocation.getCurrentPosition(success, error, options, position => {
-  userPosition.lat = position.coords.latitude
-  userPosition.lng = position.coords.longitude
-  console.log(userPosition.lat)
-  console.log(userPosition.lng)
-
+ navigator.geolocation.getCurrentPosition(success, error, position => {
+ })
   function success(position) {
+    userPosition.lat = position.coords.latitude
+    userPosition.lng = position.coords.longitude
+    console.log(userPosition.lat)
+    console.log(userPosition.lng)
    // The map, centered at user position
    let map = new google.maps.Map(
     document.getElementById('map'), { zoom: 13, center: userPosition })
    // The marker, positioned at user position
    let marker = new google.maps.Marker({ position: userPosition, map: map })
-   console.log(irvine)
   }
   
   function error() {
@@ -32,13 +31,4 @@ function initMap() {
    let marker = new google.maps.Marker({ position: irvine, map: map })
    console.log(irvine)
   }
-
-  const options = {
-   enableHighAccuracy: true,
-   maximumAge: 30000,
-   timeout: 27000
-  }
-  
-  //const watchID = navigator.geolocation.watchPosition(success, error, options)
- })
 }
