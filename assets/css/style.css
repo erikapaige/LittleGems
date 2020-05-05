@@ -1,18 +1,37 @@
- body {
-   background-color: green;
- }
+#image {
+  height: 300px;
+  width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
- #search {
-   margin-top: 20px;
- }
+#search {
+  margin: 20px;
+}
 
- #divCards {
-   display: flex;
-   display: inline-block;
-   flex-wrap: wrap;
-   flex-direction: column;
- }
+#divCards {
+  display: flex;
+  display: inline-block;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 20px;
+}
 
- .section {
-   margin-top: 20px;
- }
+.section {
+  margin: 0px 20px 0px 20px;
+}
+
+.halfway-fab{
+  border-radius: 45%;
+  -webkit-border-radius: 45%;
+  -moz-border-radius: 45%;
+  -ms-border-radius: 45%;
+  -o-border-radius: 45%;
+}
+
+.card-content {
+  padding: 10px;
+  width: 70%;
+  margin: 20px;
+}

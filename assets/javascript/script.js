@@ -2,43 +2,83 @@ document.getElementById('button').addEventListener('click', event => {
   //prevents page from refreshing when button is clicked
   event.preventDefault()
 
-  if (document.getElementById('searchInput').value.length > 1) {
-    fetch(`https://api.yelp.com/v3/businesses/${document.getElementById('searchInput').value}/`)
-      //turns data into json format
-      .then(r => r.json())
-      .then(restaurant => {
-        //console logs name of restaurant to test if fetch request is working
-        console.log(restaurant)
+  // Gets value from the search input
+  let searchInput = document.getElementById('searchInput').value;
 
-        document.getElementById('imageOne').innerHTML = `
-          <img 
-            src="${business.image_url}" 
-            alt="${business.name}">
-            `
-        document.getElementById('titleOne').innerHTML = `
-            <h5 class="card-title">
-              ${business.name}
-            </h5>
-            `
-        document.getElementById('infoOne').innerHTML = `
-            <p>${business.address}</p>
-            <p>${business.rating}</p>
-          <p>${business.categories.title}</p>
-          `
-        document.getElementById('linkOne').innerHTML = `
-          <p>${business.url}</p>
-          </div>
-        `
-        //function to clear the search bar after search is done
-        document.getElementbyId('searchInput').value = ' '
-      })
-      //catches errors from the fetch request
-      .catch(e => {
-        console.log(e)
-        alert("Error: criteria is not usable")
-      })
-  }
-})
+  // Calls the Zomato Search API and passes in the user's search
+  $.ajax({
+    type: "GET", //it's a GET request API
+    headers: {
+      'X-Zomato-API-Key': '6cc636d36121906ab8ce98c1468d462a' //only allowed non-standard header
+    },
+    url: `https://developers.zomato.com/api/v2.1/search?q=${searchInput}&lat=33.669445&lon=-117.823059`, //what do you want
+    dataType: 'json', //wanted response data type - let jQuery handle the rest...
+    data: {
+      //could be directly in URL, but this is more pretty, clear and easier to edit 
+    },
+    processData: true, //data is an object => tells jQuery to construct URL params from it
+    success: function (data) {
+      console.log(data);
 
-//need a function to replace cards with featured restaurants after user closes the apps
-//document.getElementByClassName('card').innerHTML = 'text and image from featured restaurants'
+      for (i = 1; i < 11; i++) {
+
+        if (data.restaurants[i].restaurant.user_rating.aggregate_rating > 2 && data.restaurants[i].restaurant.user_rating.votes < 100) {
+          console.log(i);
+
+          let gemElem = document.createElement('div')
+          gemElem.className = "card"
+          document.getElementById(`place${i}`).innerHTML = `
+              <div class="card-image">
+              <img id="img${i}" src=""
+                alt="${data.restaurants[i].restaurant.name}">
+              <span class="card-title">${data.restaurants[i].restaurant.name}</span>
+              </div>
+                <div class="card-content">
+                <a class="halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                <a class=" halfway-fab waves-effect waves-light red"><i class="material-icons">X</i></a>
+                      <p> ${data.restaurants[i].restaurant.location.address}</p>
+                      <p>${data.restaurants[i].restaurant.user_rating.aggregate_rating}</p>
+                      <p>${data.restaurants[i].restaurant.cuisines}</p>
+                      <p> ${data.restaurants[i].restaurant.url}</p>
+              </div>
+                  `
+
+          if (data.restaurants[i].restaurant.photo_count === 0) {
+            document.getElementById(`img${i}`).src = "./assets/images/logo.png";
+          } else {
+            document.getElementById(`img${i}`).src = data.restaurants[i].restaurant.photos[0].photo.thumb_url;
+          }
+
+
+
+          $('#searchInput').value = '';
+        }
+
+      }
+
+    },
+    error: function (xhr, status, error) {
+      var errorMessage = xhr.status + ': ' + xhr.statusText
+      alert('Error - ' + errorMessage);
+    }
+  });
+
+});
+
+//function to clear the search bar after search is done
+
+
+  //catches errors from the fetch request
+//   .catch (e => {
+//   console.log(e)
+//   document.getElementById('error').append("Error: criteria is not usable")
+// })
+
+
+
+      //need a function to replace cards with featured restaurants after user closes the apps
+      //document.getElementByClassName('card').innerHTML = 'text and image from featured restaurants'
+
+
+
+
