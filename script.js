@@ -6,6 +6,7 @@ let irvine = {
  lat: 33.6694649,
  lng: -117.8231107
 }
+
 // Initialize and add the map
 function initMap() {
  //get users location and assigns it to empty object created earlier.

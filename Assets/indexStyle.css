@@ -35,14 +35,14 @@ html {
   font-family: Courier, monospace;
 }
 
-.geoLocation {
+/* .geoLocation {
   width: auto;
   height: 500px;
   padding: 15px 0px;
   background-image: url("./placeholder-map.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 /* .card {
   height: 400px;
