@@ -1,99 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./Assets/reset.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.css" media="screen,projection" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="./Assets/reset.css">
   <link rel="stylesheet" href="./Assets/style.css">
   <title>Little Gems</title>
 </head>
+
 <body>
   <!-- content of homepage -->
-  <div class="container"> 
+  <div class="container">
     <!-- Search Bar -->
-    <div class="section">
-      <form>
-        <div class="z-depth-2" id="search">
-          <input type="text" placeholder="Search..." name="search" class="searchBar" id="searchInput">
-          <button class="searchButton"type="button" id="button">Take me to nearby Little Gems!</button>
-        </div>
-      </form>
-    </div>
-    <div class="divider"></div>
-    <div class="section geoLocation z-depth-2">
-      <h5>Geolocation Image Here</h5>
-      <p>You Are Here</p>
-    </div>
-    <div class="divider"></div>
-    <!-- divs for restaurant cards -->
-      <div class="row">
-        <!-- first card -->
-        <div class="col s12 m3">
-          <div class="card z-depth-2">
-            <div class="card-image">
-              <img src="./Assets/acai-bowl.jpeg" alt="restaurant option 1">
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <span class="card-title">Card Title</span>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, saepe ea vitae animi harum minima in totam quam. Id accusantium quisquam cupiditate natus, fugiat aperiam eaque dolor quia distinctio ex.</p>
-            </div>
-          </div>
-        </div>
-        <!-- second card -->
-        <div class="col s12 m3">
-          <div class="card z-depth-2">
-            <div class="card-image">
-              <img src="./Assets/avo-toast.jpeg" alt="restaurant option 2">
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <span class="card-title">Card Title</span>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque deserunt distinctio omnis debitis. Libero doloribus nisi alias neque sed eos illo, labore commodi quisquam enim. Repellat amet et ratione reprehenderit?</p>
-            </div>
-          </div>
-        </div>
-        <!-- third card -->
-        <div class="col s12 m3">
-          <div class="card z-depth-2">
-            <div class="card-image">
-              <img src="./Assets/pancake.jpeg" alt="restaurant option 3">
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <span class="card-title">Card Title</span>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus delectus aspernatur quod vel veritatis, laborum alias dolorum architecto officia cupiditate pariatur fuga voluptatem earum praesentium eaque facilis explicabo deserunt quidem.</p>
-            </div>
-            </div>
-          </div>
-        <!-- fourth card -->
-        <div class="col s12 m3">
-          <div class="card z-depth-2">
-            <div class="card-image">
-              <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
-              <img src="./Assets/pasta.jpeg" alt="restaurant option 4">
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <span class="card-title">Card Title</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores vero alias accusamus nam necessitatibus voluptatum optio id, minima nulla quis, inventore cupiditate excepturi rem recusandae aspernatur, vel a facere quod.</p>
-            </div>
-          </div>
-        </div>
-
-      <!-- closing div for cards row -->
+  </div>
+  <div class="section">
+    <form>
+      <div class="z-depth-2" id="search">
+        <input type="text" placeholder="Search..." name="search" class="searchBar" id="searchInput">
+        <button class="btn waves-effect waves-light" type="button" id="button" name="action">Take me to nearby Little
+          Gems!
+          <i class="material-icons right">send</i>
+        </button>
       </div>
+    </form>
+  </div>
+  <div class="section aboutLittleGems z-depth-2">
+    <p class="one">LITTLE GEMS IS AN APP THAT HELPS YOU FIND GREAT LOCAL FOOD</p>
+    <p class="two">HOW IT WORKS: Using your location, Little Gems will search 4-star rated restaurants that often get
+      overlooked because they lack reviews.
+    </p>
+  </div>
+  <div class="divider"></div>
+  <div class="section geoLocation z-depth-2">
+    <h5>Geolocation Image Here</h5>
+    <p>You Are Here</p>
+  </div>
+  <div class="divider"></div>
+  <!-- divs for restaurant cards -->
+  <div class="row">
+    <!-- first card -->
+    <div class="col s12 m3">
+      <div class="card z-depth-2">
+        <div class="card-image">
+          <img src="./Assets/acai-bowl.jpeg" alt="restaurant option 1">
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <span class="card-title">Card Title</span>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, saepe ea vitae animi harum minima in totam
+            quam. Id accusantium quisquam cupiditate natus, fugiat aperiam eaque dolor quia distinctio ex.</p>
+        </div>
+      </div>
+    </div>
+    <!-- second card -->
+    <div class="col s12 m3">
+      <div class="card z-depth-2">
+        <div class="card-image">
+          <img src="./Assets/avo-toast.jpeg" alt="restaurant option 2">
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <span class="card-title">Card Title</span>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque deserunt distinctio omnis debitis.
+            Libero doloribus nisi alias neque sed eos illo, labore commodi quisquam enim. Repellat amet et ratione
+            reprehenderit?</p>
+        </div>
+      </div>
+    </div>
+    <!-- third card -->
+    <div class="col s12 m3">
+      <div class="card z-depth-2">
+        <div class="card-image">
+          <img src="./Assets/pancake.jpeg" alt="restaurant option 3">
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <span class="card-title">Card Title</span>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus delectus aspernatur quod vel
+            veritatis, laborum alias dolorum architecto officia cupiditate pariatur fuga voluptatem earum praesentium
+            eaque facilis explicabo deserunt quidem.</p>
+        </div>
+      </div>
+    </div>
+    <!-- fourth card -->
+    <div class="col s12 m3">
+      <div class="card z-depth-2">
+        <div class="card-image">
+          <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
+          <img src="./Assets/pasta.jpeg" alt="restaurant option 4">
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <span class="card-title">Card Title</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores vero alias accusamus nam necessitatibus
+            voluptatum optio id, minima nulla quis, inventore cupiditate excepturi rem recusandae aspernatur, vel a
+            facere quod.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- closing div for cards row -->
+  </div>
 
   <!-- closing div for the container -->
   </div>
 
-  
+
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
-  <script src="Assets/script.js"></script>    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  <script src="Assets/script.js"></script>
 </body>
-</html>
+
+</html>z
