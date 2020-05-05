@@ -39,6 +39,6 @@ function initMap() {
    timeout: 27000
   }
   
-  //const watchID = navigator.geolocation.watchPosition(success, error, options)
+  const watchID = navigator.geolocation.watchPosition(success, error, options)
  })
 }
