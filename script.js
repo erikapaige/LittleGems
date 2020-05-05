@@ -23,6 +23,7 @@ function initMap() {
     document.getElementById('map'), { zoom: 13, center: userPosition })
    // The marker, positioned at user position
    let marker = new google.maps.Marker({ position: userPosition, map: map })}
+
   
   // function error() {
   //  // The map, centered at user position
