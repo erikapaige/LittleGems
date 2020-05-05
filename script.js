@@ -8,7 +8,7 @@ let irvine = {
 }
 // Initialize and add the map
 function initMap() {
- //
+ //get users location and assigns it to empty object created earlier.
  navigator.geolocation.getCurrentPosition(success, error, options, position => {
   userPosition.lat = position.coords.latitude
   userPosition.lng = position.coords.longitude
