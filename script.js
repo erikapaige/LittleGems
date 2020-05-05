@@ -10,12 +10,13 @@ let irvine = {
 // Initialize and add the map
 function initMap() {
  //get users location and assigns it to empty object created earlier.
- navigator.geolocation.getCurrentPosition(success, error, options, position => {
+ navigator.geolocation.getCurrentPosition(position => {
   userPosition.lat = position.coords.latitude
   userPosition.lng = position.coords.longitude
   console.log(userPosition.lat)
   console.log(userPosition.lng)
 
+  //  success, error, options,
   // function success(position) {
   //  // The map, centered at user position
   //  let map = new google.maps.Map(
