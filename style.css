@@ -2,20 +2,53 @@ html {
   background-color: #FFFFF3;
 }
 
-#search {
+/* row containing the logo */
+
+.logo {
+  width: auto;
+  height: responsive;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  background-color: #E1ECDD;
+}
+
+.colLogo {
+  padding: 0px;
+  display: flex;
+  flew-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.littleGemLogo {
+  padding-top: 10px;
+}
+
+/* row with search bar */
+
+.searchBarBtn {
+  width: auto;
+  height: responsive;
+  background-color: #E1ECDD;
+}
+
+input {
+  width: 400px;
   background-color: #E1ECDD;
 }
 
 #button {
-  margin: 0px 0px 8px 8px;
+  margin-bottom: 10px;
   background-color: #EE1539;
 }
+
+/* row containing written descriptions */
 
 .aboutLittleGems {
   width: auto;
   height: responsive;
   padding: 10px;
-  margin: 10px 0px 20px 0px;
+  margin: 0px 0px 20px 0px;
   background-color: #E1ECDD;
 }
 
@@ -26,17 +59,21 @@ html {
 }
 
 .two {
-  text-align: justify;
+  text-align: center;
   font-family: Courier, monospace;
 }
 
+/* div containing the map */
+
 #map {
   height: 400px;
-  /* The height is 400 pixels */
+  /* the height is 400 pixels */
   width: 100%;
-  /* The width is the width of the web page */
+  /* the width is the width of the web page */
   margin: 0px 0px 20px 0px;
 }
+
+/* formatting for the cards containing restaurant information */
 
 /* .card {
   height: 400px;

@@ -13,21 +13,35 @@
 </head>
 
 <body>
-  <!-- content of homepage -->
+  <!-- content of homepage, designed using grid system -->
   <div class="container">
-    <!-- Search Bar -->
+  <!-- div below does not have a head div, it is keeping elements the length of the page  -->
   </div>
-  <div class="section">
-    <form>
-      <div class="z-depth-2" id="search">
-        <input type="text" placeholder="Search..." name="search" class="searchBar" id="searchInput">
-        <button class="btn waves-effect waves-light" type="button" id="button" name="action">Take me to nearby Little
-          Gems!
-          <i class="material-icons right">send</i>
-        </button>
+  <!-- header -->
+  <section class="header z-depth-2">
+    <div class="row logo">
+      <div class="col s12 m2"></div>
+      <div class="col s12 m8 colLogo">
+        <img class="littleGemLogo responsive-img" src="./Assets/logo_head.png" alt="Little Gems surrounded by hand drawn stars">
       </div>
-    </form>
-  </div>
+      <div class="col s12 m2"></div>
+    </div>
+  <!-- Search Bar -->
+    <div class="row searchBarBtn">
+      <div class="col s12 m2"></div>
+      <div class="col s12 m8 colLogo">
+        <form>
+          <div id="search">
+            <input type="text" placeholder="Take Me to Nearby Little Gems" name="search" class="searchBar" id="searchInput">
+            <button class="btn waves-effect waves-light" type="button" id="button" name="action"><i class="material-icons">send</i></button>
+          </div>
+        </form>
+      </div>
+      <div class="col s12 m2"></div>
+    </div>
+  </section>
+  <!-- break inbetween elements -->
+  <div class="divider"></div>
   <div class="section aboutLittleGems z-depth-2">
     <p class="one">LITTLE GEMS IS AN APP THAT HELPS YOU FIND GREAT LOCAL FOOD</p>
     <p class="two">HOW IT WORKS: Using your location, Little Gems will search 4-star rated restaurants that often get overlooked because they lack reviews.
