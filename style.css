@@ -75,6 +75,9 @@ input {
 
 /* formatting for the cards containing restaurant information */
 
+.restaurantCards{
+  margin-top: 10px;
+}
 /* .card {
   height: 400px;
   overflow: hidden;
