@@ -1,16 +1,4 @@
-#map {
-  height: 400px;
-  /* The height is 400 pixels */
-  width: 100%;
-  /* The width is the width of the web page */
-}
-
 html {
-  /* background-image: url("./background-image.jpeg"); */
-  /* background-image: url("./background-gems.jpeg"); */
-  /* background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
   background-color: #FFFFF3;
 }
 
@@ -42,14 +30,13 @@ html {
   font-family: Courier, monospace;
 }
 
-/* .geoLocation {
-  width: auto;
-  height: 500px;
-  padding: 15px 0px;
-  background-image: url("./placeholder-map.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+  margin: 0px 0px 20px 0px;
+}
 
 /* .card {
   height: 400px;

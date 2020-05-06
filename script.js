@@ -1,3 +1,5 @@
+
+//Functions below apply to geoLocation (google map API)
 let userPosition = {
  lat: 0,
  lng: 0
