@@ -1,3 +1,10 @@
+function imgError(image) {
+  console.log(image)
+  image.onerror = ''
+  image.src = './assets/images/logoreal.png'
+  return true
+}
+
 document.getElementById('button').addEventListener('click', event => {
   //prevents page from refreshing when button is clicked
   event.preventDefault()
@@ -20,9 +27,9 @@ document.getElementById('button').addEventListener('click', event => {
     success: function (data) {
       console.log(data);
 
-      for (i = 1; i < 11; i++) {
+      for (i = 1; i < 10; i++) {
 
-        if (data.restaurants[i].restaurant.user_rating.aggregate_rating > 2 && data.restaurants[i].restaurant.user_rating.votes < 100) {
+        if (data.restaurants[i].restaurant.user_rating.aggregate_rating > 3 && data.restaurants[i].restaurant.user_rating.votes < 100) {
           console.log(i);
 
           let gemElem = document.createElement('div')
@@ -30,7 +37,8 @@ document.getElementById('button').addEventListener('click', event => {
           document.getElementById(`place${i}`).innerHTML = `
               <div class="card-image">
               <img id="img${i}" src=""
-                alt="${data.restaurants[i].restaurant.name}">
+                alt="${data.restaurants[i].restaurant.name}" onerror= 'imgError(this)'>
+
               <span class="card-title">${data.restaurants[i].restaurant.name}</span>
               </div>
                 <div class="card-content">
@@ -43,10 +51,11 @@ document.getElementById('button').addEventListener('click', event => {
               </div>
                   `
 
-          if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === "") {
-            document.getElementById(`img${i}`).src = "./assets/images/logo.png";
+          if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === "" || data.restaurants[i].restaurant.thumb === "403") {
+            document.getElementById(`img${i}`).src = "./assets/images/logoreal.png";
           } else {
             document.getElementById(`img${i}`).src = data.restaurants[i].restaurant.photos[0].photo.thumb_url;
+
           }
 
           //|| data.restaurants[i].restaurant.photos[0].photo.thumb_url === "")
