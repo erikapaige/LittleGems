@@ -18,7 +18,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("./Assets/little_gems_bk_1600x900px.png");
+  background-image: url("./Assets/images/little_gems_bk_1600x900px.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
