@@ -4,6 +4,15 @@ function imgError(image) {
   image.src = './assets/images/logoreal.png'
   return true
 }
+//empty array to later store saved restaurants in local storage
+let favoriteArray = []
+
+//collect restaurant's unique ID, stores it in array, and then saves array to local storage
+function saveRestaurant() {
+  let restaurantID = event.target.id
+  favoriteArray.push(restaurantID)
+  localStorage.setItem('favoriteArray', JSON.stringify(favoriteArray))
+}
 
 document.getElementById('button').addEventListener('click', event => {
   //prevents page from refreshing when button is clicked
@@ -42,7 +51,7 @@ document.getElementById('button').addEventListener('click', event => {
               <span class="card-title">${data.restaurants[i].restaurant.name}</span>
               </div>
                 <div class="card-content">
-                <a class="halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                <a onclick="saveRestaurant()"id="favorite" class="halfway-fab waves-effect waves-light red"><i id="${data.restaurants[i].restaurant.id} " value="${data.restaurants[i].restaurant.id}" class="material-icons">add</i></a>
                 <a class=" halfway-fab waves-effect waves-light red"><i class="material-icons">X</i></a>
                       <p> ${data.restaurants[i].restaurant.location.address}</p>
                       <p>${data.restaurants[i].restaurant.user_rating.aggregate_rating}</p>
@@ -71,7 +80,6 @@ document.getElementById('button').addEventListener('click', event => {
       alert('Error - ' + errorMessage);
     }
   });
-
 });
 
       //need a function to replace cards with featured restaurants after user closes the apps
