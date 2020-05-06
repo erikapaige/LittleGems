@@ -14,9 +14,14 @@ html {
 
 .colLogo {
   padding: 0px;
+  margin: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("./Assets/little_gems_bk_1600x900px.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .littleGemLogo {
@@ -25,15 +30,31 @@ html {
 
 /* row with search bar */
 
+#search {
+  display: flex;
+}
+
 .searchBarBtn {
   width: auto;
   height: responsive;
   background-color: #E1ECDD;
 }
 
-input {
-  width: 400px;
+form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.searchBar {
+  margin-right: 15px;
+  width: 1000px;
   background-color: #E1ECDD;
+}
+
+form-inline button {
+  margin-bottom: 10px;
+  background-color: #EE1539;
 }
 
 #button {
@@ -74,9 +95,10 @@ input {
 
 /* formatting for the cards containing restaurant information */
 
-.restaurantCards{
+.restaurantCards {
   margin-top: 10px;
 }
+
 /* .card {
   height: 400px;
   overflow: hidden;
