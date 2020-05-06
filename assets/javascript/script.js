@@ -43,13 +43,13 @@ document.getElementById('button').addEventListener('click', event => {
               </div>
                   `
 
-          if (data.restaurants[i].restaurant.photo_count === 0) {
+          if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === "") {
             document.getElementById(`img${i}`).src = "./assets/images/logo.png";
           } else {
             document.getElementById(`img${i}`).src = data.restaurants[i].restaurant.photos[0].photo.thumb_url;
           }
 
-
+          //|| data.restaurants[i].restaurant.photos[0].photo.thumb_url === "")
 
           $('#searchInput').value = '';
         }
@@ -64,17 +64,6 @@ document.getElementById('button').addEventListener('click', event => {
   });
 
 });
-
-//function to clear the search bar after search is done
-
-
-  //catches errors from the fetch request
-//   .catch (e => {
-//   console.log(e)
-//   document.getElementById('error').append("Error: criteria is not usable")
-// })
-
-
 
       //need a function to replace cards with featured restaurants after user closes the apps
       //document.getElementByClassName('card').innerHTML = 'text and image from featured restaurants'
