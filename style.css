@@ -15,7 +15,6 @@ html {
 .colLogo {
   padding: 0px;
   display: flex;
-  flew-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
