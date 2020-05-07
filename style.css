@@ -1,33 +1,80 @@
-#map {
-  height: 400px;
-  /* The height is 400 pixels */
-  width: 100%;
-  /* The width is the width of the web page */
-}
-
 html {
-  /* background-image: url("./background-image.jpeg"); */
-  /* background-image: url("./background-gems.jpeg"); */
-  /* background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
   background-color: #FFFFF3;
 }
 
-#search {
+/* row containing the logo */
+
+.logo {
+  width: auto;
+  height: responsive;
+  margin-top: 40px;
+  margin-bottom: 0px;
   background-color: #E1ECDD;
 }
 
-#button {
-  margin: 0px 0px 8px 8px;
+.colLogo {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./Assets/images/little_gems_bk_1920x1080px.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.littleGemLogo {
+  padding-top: 10px;
+}
+
+/* row with search bar */
+
+#search {
+  display: flex;
+}
+
+.searchBarBtn {
+  width: auto;
+  height: responsive;
+  background-color: #E1ECDD;
+}
+
+form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.searchBar {
+  margin-right: 15px;
+  width: 1000px;
+  background-color: #E1ECDD;
+}
+
+form-inline button {
+  margin-bottom: 10px;
   background-color: #EE1539;
 }
+
+#button {
+  margin-bottom: 10px;
+  background-color: #EE1539;
+}
+
+.savedGem {
+  color: black;
+  font-family: Courier, monospace;
+  background-color: #FFFFF3;
+}
+
+/* row containing written descriptions */
 
 .aboutLittleGems {
   width: auto;
   height: responsive;
   padding: 10px;
-  margin: 10px 0px 20px 0px;
+  margin: 0px 0px 20px 0px;
   background-color: #E1ECDD;
 }
 
@@ -38,23 +85,25 @@ html {
 }
 
 .two {
-  text-align: justify;
+  text-align: center;
   font-family: Courier, monospace;
 }
 
-/* .geoLocation {
-  width: auto;
-  height: 500px;
-  padding: 15px 0px;
-  background-image: url("./placeholder-map.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
+/* div containing the map */
 
-/* .card {
+#map {
   height: 400px;
-  overflow: hidden;
-} */
+  /* the height is 400 pixels */
+  width: 100%;
+  /* the width is the width of the web page */
+  margin: 0px 0px 20px 0px;
+}
+
+/* formatting for the cards containing restaurant information */
+
+.restaurantCards {
+  margin-top: 10px;
+}
 
 .card-title {
   font-family: Courier, monospace;
@@ -68,4 +117,9 @@ html {
 
 .circle-btn {
   background-color: #EE1539 !important;
+}
+
+.card-content2 {
+  font-family: Courier, monospace;
+  background-color: #ACE1FF;
 }
