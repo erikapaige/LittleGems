@@ -56,6 +56,14 @@ function initMap() {
     success: function (data) {
       console.log(data);
 
+    //image error handler, replaces missing images with default placeholder
+    function imgError(image) {
+      console.log(image)
+      image.onerror = ''
+      image.src = './assets/images/logoreal.png'
+      return true
+    }
+
       // Continues to loop through Zomato API and create elements until we have 8 cards on our page
       for (i = 1; document.getElementById('row1').childElementCount + document.getElementById('row2').childElementCount < 8; i++) {
 
@@ -72,7 +80,7 @@ function initMap() {
           gemElem.innerHTML = `
             <div class="card z-depth-2" id="restauraunt${i}">
               <div class="card-image">
-                <img id="img${i}" src="" alt="restaurant option ${i}">
+                <img id="img${i}" src="" alt="${data.restaurants[i].restaurant.name}" onerror= "imgError(this)">
                 <a class="btn-floating halfway-fab waves-effect waves-light red" id="save${i}"><i class="material-icons">add</i></a>
               </div>
               <div class="card-content">
@@ -93,7 +101,7 @@ function initMap() {
             gemElem.innerHTML = `
               <div class="card z-depth-2" id="restauraunt${i}">
                 <div class="card-image">
-                  <img id="img${i}" src="" alt="restaurant option ${i}">
+                  <img id="img${i}" src="" alt="${data.restaurants[i].restaurant.name}" onerror= "imgError(this)">
                   <a class="btn-floating halfway-fab waves-effect waves-light red" id="save${i}"><i class="material-icons">add</i></a>
                 </div>
                 <div class="card-content">
@@ -107,10 +115,10 @@ function initMap() {
           }
 
           // Checks if restaurant has photo or not, if it does sets img source to that, if it doesn't sets img source to placeholder
-          if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === '') {
+          if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === '' || data.restaurants[i].restaurant.thumb === "403") {
             document.getElementById(`img${i}`).src = "Assets/images/placeholder_1000px.png";
           } else {
-            document.getElementById(`img${i}`).src = data.restaurants[i].restaurant.photos[0].photo.thumb_url;
+            document.getElementById(`img${i}`).src = data.restaurants[i].restaurant.photos[0].photo.url;
           }
           $('#searchInput').value = '';
 
