@@ -118,3 +118,8 @@ form-inline button {
 .circle-btn {
   background-color: #EE1539 !important;
 }
+
+.card-content2 {
+  font-family: Courier, monospace;
+  background-color: #ACE1FF;
+}

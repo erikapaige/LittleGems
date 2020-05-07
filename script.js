@@ -111,7 +111,7 @@ function initMap() {
               <div class="card z-depth-2" id="restauraunt${i}">
                 <div class="card-image">
                   <img id="img${i}" src="" alt="${data.restaurants[i].restaurant.name}" onerror= "imgError(this)">
-                  <a class="btn-floating halfway-fab waves-effect waves-light red" id="save${i}"><i onclick="saveRestaurant()" id="${data.restaurants[i].restaurant.id}" value="${data.restaurants[i].restaurant.id} class="material-icons">add</i></a>
+                  <a id="favorite" class="btn-floating halfway-fab waves-effect waves-light red"><i onclick="saveRestaurant()" id="${data.restaurants[i].restaurant.id}" class="material-icons">add</i></a>
                 </div>
                 <div class="card-content">
                   <span class="card-title" id="title${i}">${data.restaurants[i].restaurant.name}</span>
@@ -177,7 +177,8 @@ document.getElementById('savedGem').addEventListener('click', () => {
       document.getElementById('row2').innerHTML = '';
       favoriteArray = JSON.parse(localStorage.getItem('favoriteArray'))
       console.log(favoriteArray)
-      for (i = 0; i <= favoriteArray.length; i++) {
+      for (i = 0; i < favoriteArray.length; i++) {
+        console.log(i);
         $.ajax({
           type: "GET", //it's a GET request API
           headers: {
@@ -193,22 +194,23 @@ document.getElementById('savedGem').addEventListener('click', () => {
             console.log(data);
                 // Checks that the div row1 has less than 4 cards, if it has 4 the next 4 cards are added to row 2 with the else statement
                 if (document.getElementById('row1').childElementCount < 4) {
+                  console.log(i);
                   let row = (document.getElementById('row1'));
                   let gemElem = document.createElement('div');
                   row.appendChild(gemElem);
-                  gemElem.setAttribute("id", `card${ i }`);
+                  gemElem.setAttribute("id", `card`);
                   gemElem.classList.add("col", "s12", "m3");
                   gemElem.innerHTML = `
-            <div class="card z-depth-2" id="restauraunt${i}">
+            <div class="card z-depth-2" id="restauraunt">
               <div class="card-image">
-                <img id="img${i}" src="" alt="restaurant option ${i}">
+                <img src="" alt="restaurant option" id="${data.name}">
               </div>
-              <div class="card-content2">
-                <span class="card-title" id="title${i}">${data.name}</span>
-                <p id="cuisine${i}">${data.cuisines}</p>
-                <p id="rating${i}">${data.user_rating.aggregate_rating} (${data.user_rating.votes})</p>
-                <p id="address${i}">${data.location.address}</p>
-                <a class="waves-effect waves-light btn" href="${data.url}" id="link${i}" target="_blank">Go To Restaurant</a>
+              <div class="card-content card-content2">
+                <span class="card-title" id="title">${data.name}</span>
+                <p id="cuisine">${data.cuisines}</p>
+                <p id="rating">${data.user_rating.aggregate_rating} (${data.user_rating.votes})</p>
+                <p id="address">${data.location.address}</p>
+                <a class="waves-effect waves-light btn" href="${data.url}" id="link" target="_blank">Go To Restaurant</a>
               </div>
             </div>
                   `
@@ -216,27 +218,27 @@ document.getElementById('savedGem').addEventListener('click', () => {
                   row = (document.getElementById('row2'));
                   gemElem = document.createElement('DIV');
                   row.appendChild(gemElem);
-                  gemElem.setAttribute("id", `card${ i }`);
+                  gemElem.setAttribute("id", `card`);
                   gemElem.classList.add("col", "s12", "m3");
                   gemElem.innerHTML = `
-              <div class="card z-depth-2" id="restauraunt${i}">
+              <div class="card z-depth-2" id="restauraunt">
                 <div class="card-image">
-                  <img id="img${i}" src="" alt="restaurant option ${i}">
+                  <img src="" alt="restaurant option" id="${data.name}">
                 </div>
-                <div class="card-content2">
-                  <span class="card-title" id="title${i}">${data.name}</span>
-                  <p id="cuisine${i}">${data.cuisines}</p>
-                  <p id="rating${i}">${data.user_rating.aggregate_rating} (${data.user_rating.votes})</p>
-                  <p id="address${i}">${data.location.address}</p>
-                  <a class="waves-effect waves-light btn" href="${data.url}" id="link${i}" target="_blank">Go To Restaurant</a>
+                <div class="card-content card-content2">
+                  <span class="card-title" id="title">${data.name}</span>
+                  <p id="cuisine">${data.cuisines}</p>
+                  <p id="rating">${data.user_rating.aggregate_rating} (${data.user_rating.votes})</p>
+                  <p id="address">${data.location.address}</p>
+                  <a class="waves-effect waves-light btn" href="${data.url}" id="link" target="_blank">Go To Restaurant</a>
                 </div>
               </div>`
                 }
                 // Checks if restaurant has photo or not, if it does sets img source to that, if it doesn't sets img source to placeholder
                 if (data.photo_count === 0) {
-                  document.getElementById(`img${ i }`).src = "Assets/placeholder_Green_1000px.png";
+                  document.getElementById(data.name).src = "Assets/placeholder_Green_1000px.png";
                 } else {
-                  document.getElementById(`img${ i }`).src = data.photos[0].photo.url;
+                  document.getElementById(data.name).src = data.photos[0].photo.url;
                 }
           }
       })
