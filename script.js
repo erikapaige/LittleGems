@@ -1,3 +1,5 @@
+// START OF GEOLOCATION
+
 let userPosition = {
  lat: 0,
  lng: 0
@@ -27,4 +29,97 @@ function initMap() {
    // The marker, positioned at user position
    let marker = new google.maps.Marker({ position: irvine, map: map })
   }
+
+  // START OF ZOMATO API
+
+  document.getElementById('button').addEventListener('click', event => {
+  //prevents page from refreshing when button is clicked
+  event.preventDefault()
+
+  // Gets value from the search input
+  let searchInput = document.getElementById('searchInput').value;
+
+  // Calls the Zomato Search API and passes in the user's search
+  $.ajax({
+    type: "GET", //it's a GET request API
+    headers: {
+      'X-Zomato-API-Key': '6cc636d36121906ab8ce98c1468d462a' //only allowed non-standard header
+    },
+    url: `https://developers.zomato.com/api/v2.1/search?q=${searchInput}&radius=40233&?count=50&lat=${userPosition.lat}&lon=${userPosition.lng}`, //what do you want
+    dataType: 'json', //wanted response data type - let jQuery handle the rest...
+    data: {
+      //could be directly in URL, but this is more pretty, clear and easier to edit 
+    },
+    processData: true, //data is an object => tells jQuery to construct URL params from it
+    success: function (data) {
+      console.log(data);
+
+      for (i = 1; i <= 8; i++) {
+
+      }
+
+      for (i = 1; i <= 8; i++) {
+
+
+        if (data.restaurants[i].restaurant.user_rating.aggregate_rating > 3 && data.restaurants[i].restaurant.user_rating.votes < 100) {
+
+          // document.getElementById(`title${i}`).textContent = data.restaurants[i].restaurant.name;
+          // document.getElementById(`cuisine${i}`).textContent = data.restaurants[i].restaurant.cuisines;
+          // document.getElementById(`rating${i}`).textContent = `${data.restaurants[i].restaurant.user_rating.aggregate_rating} (${data.restaurants[i].restaurant.user_rating.votes})`;
+          // document.getElementById(`address${i}`).textContent = data.restaurants[i].restaurant.location.address;
+          // document.getElementById(`link${i}`).href = data.restaurants[i].restaurant.url;
+      
+          let row = (document.getElementById('row1'));
+          let gemElem = document.createElement('DIV');
+          row.appendChild(gemElem);          
+          gemElem.setAttribute("id", `card${i}`);
+          gemElem.classList.add("col", "s12", "m3");
+          gemElem.innerHTML = `
+            <div class="card z-depth-2" id="restauraunt${i}">
+              <div class="card-image">
+                <img id="img${i}" src="${data.restaurants[i].restaurant.photos[0].photo.thumb_url}" alt="restaurant option ${i}">
+                <a class="btn-floating halfway-fab waves-effect waves-light red" id="save${i}"><i class="material-icons">add</i></a>
+              </div>
+              <div class="card-content">
+                <span class="card-title" id="title${i}">${data.restaurants[i].restaurant.name}</span>
+                <p id="cuisine${i}">${data.restaurants[i].restaurant.cuisines}</p>
+                <p id="rating${i}">${data.restaurants[i].restaurant.user_rating.aggregate_rating} (${data.restaurants[i].restaurant.user_rating.votes})</p>
+                <p id="address${i}">${data.restaurants[i].restaurant.location.address}</p>
+                <a class="waves-effect waves-light btn" href="${data.restaurants[i].restaurant.url}" id="link${i}" target="_blank">Go To Restaurant</a>
+              </div>
+            </div>
+                  `
+
+
+          if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === '') {
+            document.getElementById(`img${i}`).src = "Assets/placeholder_Green_1000px.png";
+          } else {
+            document.getElementById(`img${i}`).src = data.restaurants[i].restaurant.photos[0].photo.thumb_url;
+          }
+          $('#searchInput').value = '';
+
+        }
+
+          // if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === '') {
+          //   document.getElementById(`img${i--}`).src = "Assets/placeholder_Green_1000px.png";
+          // } else {
+          //   document.getElementById(`img${i--}`).src = data.restaurants[i].restaurant.photos[0].photo.thumb_url;
+          // }
+
+
+      }
+
+    },
+    error: function (xhr, status, error) {
+      var errorMessage = xhr.status + ': ' + xhr.statusText
+      alert('Error - ' + errorMessage);
+    }
+  });
+
+});
+
+// END OF ZOMATO API
+
 }
+
+// END OF GEOLOCATION
