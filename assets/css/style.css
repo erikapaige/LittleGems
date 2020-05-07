@@ -1,37 +1,122 @@
-#image {
-  height: 300px;
-  width: 400px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+html {
+  background-color: #FFFFF3;
 }
+
+/* row containing the logo */
+
+.logo {
+  width: auto;
+  height: responsive;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  background-color: #E1ECDD;
+}
+
+.colLogo {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./Assets/images/little_gems_bk_1600x900px.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.littleGemLogo {
+  padding-top: 10px;
+}
+
+/* row with search bar */
 
 #search {
-  margin: 20px;
-}
-
-#divCards {
   display: flex;
-  display: inline-block;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin-top: 20px;
 }
 
-.section {
-  margin: 0px 20px 0px 20px;
+.searchBarBtn {
+  width: auto;
+  height: responsive;
+  background-color: #E1ECDD;
 }
 
-.halfway-fab{
-  border-radius: 45%;
-  -webkit-border-radius: 45%;
-  -moz-border-radius: 45%;
-  -ms-border-radius: 45%;
-  -o-border-radius: 45%;
+form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.searchBar {
+  margin-right: 15px;
+  width: 1000px;
+  background-color: #E1ECDD;
+}
+
+form-inline button {
+  margin-bottom: 10px;
+  background-color: #EE1539;
+}
+
+#button {
+  margin-bottom: 10px;
+  background-color: #EE1539;
+}
+
+.savedGem {
+  color: black;
+  font-family: Courier, monospace;
+  background-color: #FFFFF3;
+}
+
+/* row containing written descriptions */
+
+.aboutLittleGems {
+  width: auto;
+  height: responsive;
+  padding: 10px;
+  margin: 0px 0px 20px 0px;
+  background-color: #E1ECDD;
+}
+
+.one {
+  text-align: center;
+  font-weight: bold;
+  font-family: Courier, monospace;
+}
+
+.two {
+  text-align: center;
+  font-family: Courier, monospace;
+}
+
+/* div containing the map */
+
+#map {
+  height: 400px;
+  /* the height is 400 pixels */
+  width: 100%;
+  /* the width is the width of the web page */
+  margin: 0px 0px 20px 0px;
+}
+
+/* formatting for the cards containing restaurant information */
+
+.restaurantCards {
+  margin-top: 10px;
+}
+
+.card-title {
+  font-family: Courier, monospace;
+  padding: 10px 20px 10px 20px;
 }
 
 .card-content {
-  padding: 10px;
-  width: 70%;
-  margin: 20px;
+  font-family: Courier, monospace;
+  background-color: #E1ECDD;
 }
+
+.circle-btn {
+  background-color: #EE1539 !important;
+}
+
+© 2020 GitHub, Inc.
