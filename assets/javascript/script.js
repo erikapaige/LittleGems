@@ -8,6 +8,15 @@ let irvine = {
   lat: 33.6694649,
   lng: -117.8231107
 }
+//empty array to later store saved restaurants in local storage
+let favoriteArray = []
+
+//collect restaurant's unique ID, stores it in array, and then saves array to local storage
+function saveRestaurant() {
+  let restaurantID = event.target.id
+  favoriteArray.push(restaurantID)
+  localStorage.setItem('favoriteArray', JSON.stringify(favoriteArray))
+}
 
 // Initialize and add the map
 function initMap() {
@@ -76,12 +85,22 @@ function initMap() {
                 <img id="img${i}" src="" alt="restaurant option ${i}">
                 <a class="btn-floating halfway-fab waves-effect waves-light red" id="save${i}"><i class="material-icons">add</i></a>
               </div>
+<<<<<<< HEAD
               <div class="card-content">
                 <span class="card-title" id="title${i}">${data.restaurants[i].restaurant.name}</span>
                 <p id="cuisine${i}">${data.restaurants[i].restaurant.cuisines}</p>
                 <p id="rating${i}">${data.restaurants[i].restaurant.user_rating.aggregate_rating} (${data.restaurants[i].restaurant.user_rating.votes})</p>
                 <p id="address${i}">${data.restaurants[i].restaurant.location.address}</p>
                 <a class="waves-effect waves-light btn" href="${data.restaurants[i].restaurant.url}" id="link${i}" target="_blank">Go To Restaurant</a>
+=======
+                <div class="card-content">
+                <a onclick="saveRestaurant()"id="favorite" class="halfway-fab waves-effect waves-light red"><i id="${data.restaurants[i].restaurant.id} " value="${data.restaurants[i].restaurant.id}" class="material-icons">add</i></a>
+                <a class=" halfway-fab waves-effect waves-light red"><i class="material-icons">X</i></a>
+                      <p> ${data.restaurants[i].restaurant.location.address}</p>
+                      <p>${data.restaurants[i].restaurant.user_rating.aggregate_rating}</p>
+                      <p>${data.restaurants[i].restaurant.cuisines}</p>
+                      <p> ${data.restaurants[i].restaurant.url}</p>
+>>>>>>> a48bea466ed30d9703ee8f51d18920f6e84b3c5d
               </div>
             </div>
                   `
@@ -127,6 +146,7 @@ function initMap() {
     });
 
   });
+<<<<<<< HEAD
 
   // END OF ZOMATO API
 
@@ -143,6 +163,9 @@ function saveRestaurant() {
   favoriteArray.push(restaurantID)
   localStorage.setItem('favoriteArray', JSON.stringify(favoriteArray))
 }
+=======
+});
+>>>>>>> a48bea466ed30d9703ee8f51d18920f6e84b3c5d
 
 document.addEventListener('click', (event) => {
   if (event.target.className === 'savedGem') {
