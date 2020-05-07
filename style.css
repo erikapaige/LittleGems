@@ -62,6 +62,12 @@ form-inline button {
   background-color: #EE1539;
 }
 
+.savedGem {
+  color: black;
+  font-family: Courier, monospace;
+  background-color: #FFFFF3;
+}
+
 /* row containing written descriptions */
 
 .aboutLittleGems {
