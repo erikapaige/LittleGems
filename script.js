@@ -31,7 +31,7 @@ function initMap() {
 
   // START OF ZOMATO API
 
-  document.getElementById('button').addEventListener('click', event => {
+  getGems = function() {
   //prevents page from refreshing when button is clicked
   event.preventDefault()
   // Clear restaurants when searching again
@@ -108,7 +108,7 @@ function initMap() {
 
           // Checks if restaurant has photo or not, if it does sets img source to that, if it doesn't sets img source to placeholder
           if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === '') {
-            document.getElementById(`img${i}`).src = "Assets/placeholder_Green_1000px.png";
+            document.getElementById(`img${i}`).src = "Assets/images/placeholder_Green_1000px.png";
           } else {
             document.getElementById(`img${i}`).src = data.restaurants[i].restaurant.photos[0].photo.thumb_url;
           }
@@ -125,7 +125,27 @@ function initMap() {
     }
   });
 
+};
+
+document.getElementById('button').addEventListener('click', function () {
+
+  if (document.getElementById('searchInput').value !== '') {
+    getGems();
+  } else {
+    console.log('Enter a search!');
+  }
+
 });
+
+document.getElementById('searchInput').addEventListener('keypress', function () {
+
+  let key = event.keyCode;
+  if (key === 13 && document.getElementById('searchInput').value !== '') {
+    getGems();
+  }
+
+});
+
 
 // END OF ZOMATO API
 
