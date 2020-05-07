@@ -35,6 +35,9 @@ function initMap() {
   document.getElementById('button').addEventListener('click', event => {
   //prevents page from refreshing when button is clicked
   event.preventDefault()
+  // Clear restaurants when searching again
+  document.getElementById('row1').innerHTML = '';
+  document.getElementById('row2').innerHTML = '';
 
   // Gets value from the search input
   let searchInput = document.getElementById('searchInput').value;
@@ -54,21 +57,14 @@ function initMap() {
     success: function (data) {
       console.log(data);
 
-      for (i = 1; i <= 8; i++) {
+      // Continues to loop through Zomato API and create elements until we have 8 cards on our page
+      for (i = 1; document.getElementById('row1').childElementCount + document.getElementById('row2').childElementCount < 8; i++) {
 
-      }
+        // Checks if restaurants rating is above 3 stars with less than 40 total ratings
+        if (data.restaurants[i].restaurant.user_rating.aggregate_rating > 3 && data.restaurants[i].restaurant.user_rating.votes < 40) {
 
-      for (i = 1; i <= 8; i++) {
-
-
-        if (data.restaurants[i].restaurant.user_rating.aggregate_rating > 3 && data.restaurants[i].restaurant.user_rating.votes < 100) {
-
-          // document.getElementById(`title${i}`).textContent = data.restaurants[i].restaurant.name;
-          // document.getElementById(`cuisine${i}`).textContent = data.restaurants[i].restaurant.cuisines;
-          // document.getElementById(`rating${i}`).textContent = `${data.restaurants[i].restaurant.user_rating.aggregate_rating} (${data.restaurants[i].restaurant.user_rating.votes})`;
-          // document.getElementById(`address${i}`).textContent = data.restaurants[i].restaurant.location.address;
-          // document.getElementById(`link${i}`).href = data.restaurants[i].restaurant.url;
-      
+          // Checks that the div row1 has less than 4 cards, if it has 4 the next 4 cards are added to row 2 with the else statement
+          if (document.getElementById('row1').childElementCount < 4) {
           let row = (document.getElementById('row1'));
           let gemElem = document.createElement('DIV');
           row.appendChild(gemElem);          
@@ -77,7 +73,7 @@ function initMap() {
           gemElem.innerHTML = `
             <div class="card z-depth-2" id="restauraunt${i}">
               <div class="card-image">
-                <img id="img${i}" src="${data.restaurants[i].restaurant.photos[0].photo.thumb_url}" alt="restaurant option ${i}">
+                <img id="img${i}" src="" alt="restaurant option ${i}">
                 <a class="btn-floating halfway-fab waves-effect waves-light red" id="save${i}"><i class="material-icons">add</i></a>
               </div>
               <div class="card-content">
@@ -89,8 +85,29 @@ function initMap() {
               </div>
             </div>
                   `
+          } else {
+            row = (document.getElementById('row2'));
+            gemElem = document.createElement('DIV');
+            row.appendChild(gemElem);          
+            gemElem.setAttribute("id", `card${i}`);
+            gemElem.classList.add("col", "s12", "m3");
+            gemElem.innerHTML = `
+              <div class="card z-depth-2" id="restauraunt${i}">
+                <div class="card-image">
+                  <img id="img${i}" src="" alt="restaurant option ${i}">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red" id="save${i}"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                  <span class="card-title" id="title${i}">${data.restaurants[i].restaurant.name}</span>
+                  <p id="cuisine${i}">${data.restaurants[i].restaurant.cuisines}</p>
+                  <p id="rating${i}">${data.restaurants[i].restaurant.user_rating.aggregate_rating} (${data.restaurants[i].restaurant.user_rating.votes})</p>
+                  <p id="address${i}">${data.restaurants[i].restaurant.location.address}</p>
+                  <a class="waves-effect waves-light btn" href="${data.restaurants[i].restaurant.url}" id="link${i}" target="_blank">Go To Restaurant</a>
+                </div>
+              </div>`
+          }
 
-
+          // Checks if restaurant has photo or not, if it does sets img source to that, if it doesn't sets img source to placeholder
           if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === '') {
             document.getElementById(`img${i}`).src = "Assets/placeholder_Green_1000px.png";
           } else {
@@ -99,13 +116,6 @@ function initMap() {
           $('#searchInput').value = '';
 
         }
-
-          // if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === '') {
-          //   document.getElementById(`img${i--}`).src = "Assets/placeholder_Green_1000px.png";
-          // } else {
-          //   document.getElementById(`img${i--}`).src = data.restaurants[i].restaurant.photos[0].photo.thumb_url;
-          // }
-
 
       }
 
