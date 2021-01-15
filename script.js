@@ -59,7 +59,7 @@ function initMap() {
     url: `https://developers.zomato.com/api/v2.1/search?q=${searchInput}&radius=40233&?count=50&lat=${userPosition.lat}&lon=${userPosition.lng}`, //what do you want
     dataType: 'json', //wanted response data type - let jQuery handle the rest...
     data: {
-      //could be directly in URL, but this is more pretty, clear and easier to edit 
+      // could be directly in URL, but this is more prettier, clearer, and easier to edit 
     },
     processData: true, //data is an object => tells jQuery to construct URL params from it
     success: function (data) {
@@ -76,20 +76,19 @@ function initMap() {
       // Continues to loop through Zomato API and create elements until we have 8 cards on our page
       for (i = 1; document.getElementById('row1').childElementCount + document.getElementById('row2').childElementCount < 8; i++) {
 
-        // Checks if restaurants rating is above 3 stars with less than 40 total ratings
+        // Checks if restaurants rating is above 3 stars but has fewer than 40 total ratings
         if (data.restaurants[i].restaurant.user_rating.aggregate_rating > 3 && data.restaurants[i].restaurant.user_rating.votes < 40) {
-
           // Checks that the div row1 has less than 4 cards, if it has 4 the next 4 cards are added to row 2 with the else statement
           if (document.getElementById('row1').childElementCount < 4) {
           let row = (document.getElementById('row1'));
           let gemElem = document.createElement('DIV');
-          row.appendChild(gemElem);          
+          row.appendChild(gemElem)
           gemElem.setAttribute("id", `card${i}`);
           gemElem.classList.add("col", "s12", "m3");
           gemElem.innerHTML = `
             <div class="card z-depth-2" id="restauraunt${i}">
               <div class="card-image">
-                <img id="img${i}" src="" alt="${data.restaurants[i].restaurant.name}" onerror= "imgError(this)">
+                <img id="img${i}" src="${data.restaurants[i].restaurant.photos_url}" alt="${data.restaurants[i].restaurant.name}" onerror= "imgError(this)">
                 <a id="favorite" class="btn-floating halfway-fab waves-effect waves-light red"><i onclick="saveRestaurant()" id="${data.restaurants[i].restaurant.id}" class="material-icons">add</i></a>
               </div>
               <div class="card-content">
@@ -110,7 +109,7 @@ function initMap() {
             gemElem.innerHTML = `
               <div class="card z-depth-2" id="restauraunt${i}">
                 <div class="card-image">
-                  <img id="img${i}" src="" alt="${data.restaurants[i].restaurant.name}" onerror= "imgError(this)">
+                  <img id="img${i}" src="${data.restaurants[i].restaurant.photos_url}" alt="${data.restaurants[i].restaurant.name}" onerror= "imgError(this)">
                   <a id="favorite" class="btn-floating halfway-fab waves-effect waves-light red"><i onclick="saveRestaurant()" id="${data.restaurants[i].restaurant.id}" class="material-icons">add</i></a>
                 </div>
                 <div class="card-content">
@@ -238,7 +237,7 @@ document.getElementById('savedGem').addEventListener('click', () => {
                 if (data.photo_count === 0) {
                   document.getElementById(data.name).src = "Assets/placeholder_Green_1000px.png";
                 } else {
-                  document.getElementById(data.name).src = data.photos[0].photo.url;
+                  document.getElementById(data.name).src = data.photos[0].photo.url
                 }
           }
       })
@@ -246,5 +245,3 @@ document.getElementById('savedGem').addEventListener('click', () => {
   }
   retrieveSaved()
 })
-
-
