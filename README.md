@@ -1,6 +1,6 @@
 # LittleGems
 
-Apps like Yelp, Google, Uber Eats, and Door Dash have revolutionized the way we explore restaurants. These apps provide endless options for food eateries based on the reviews and ratings for each location. The greater the reviews and ratings, the higher the business is ranked and the more it is recommended to users. However, what happens to the restaurants with few reviews? The ones that have spectacular food and service, but only a small sample of people who know about it? Many times, they are overlooked and therefore, not ranked as highly on recommendations. Little Gems shines a spotlight on these places by providing users with recommendations of local 4-star rated restaurants which have a small number of reviews. 
+Apps like Yelp, Google, Uber Eats, and Door Dash have revolutionized the way we explore restaurants. These apps provide endless options for food eateries based on the reviews and ratings for each location. The greater the reviews and ratings, the higher the business is ranked and the more it is recommended to users. However, what happens to the restaurants with few reviews? The ones that have spectacular food and service, but only a small sample of people who know about it? Many times, they are overlooked and therefore, not ranked as highly on recommendations. Little Gems shines a spotlight on these places by providing users with recommendations of local restaurants which are rated 3 stars or higher but which have a small number of reviews. 
 
 ## APIs
 
