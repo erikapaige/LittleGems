@@ -1,9 +1,9 @@
 // Functions below apply to geoLocation (google map API)
-let userPosition = {
+const userPosition = {
   lat: 0,
   lng: 0
 }
-let irvine = {
+const irvine = {
   lat: 33.6694649,
   lng: -117.8231107
 }
@@ -11,48 +11,48 @@ let irvine = {
 let favoriteArray = []
 
 // collect restaurant's unique ID, stores it in array, and then saves array to local storage
-function saveRestaurant() {
-  let restaurantID = event.target.id
+function saveRestaurant () {
+  const restaurantID = event.target.id
   favoriteArray.push(restaurantID)
   console.log(restaurantID)
   localStorage.setItem('favoriteArray', JSON.stringify(favoriteArray))
 }
 // Initialize and add the map
-function initMap() {
+function initMap () {
   // get users location and assigns it to empty object created earlier.
-  navigator.geolocation.getCurrentPosition(success, error, position => {})
-  function success(position) {
+  navigator.geolocation.getCurrentPosition(success, error, position => { })
+  function success (position) {
     userPosition.lat = position.coords.latitude
     userPosition.lng = position.coords.longitude
     // The map, centered at user position
-    let map = new google.maps.Map(
+    const map = new google.maps.Map(
       document.getElementById('map'), { zoom: 13, center: userPosition })
     // The marker, positioned at user position
-    let marker = new google.maps.Marker({ position: userPosition, map: map })
+    const marker = new google.maps.Marker({ position: userPosition, map: map })
   }
-  function error() {
+  function error () {
     // The map, centered at user position
-    let map = new google.maps.Map(
+    const map = new google.maps.Map(
       document.getElementById('map'), { zoom: 13, center: irvine })
     // The marker, positioned at user position
-    let marker = new google.maps.Marker({ position: irvine, map: map })
+    const marker = new google.maps.Marker({ position: irvine, map: map })
   }
 
   // START OF ZOMATO API
 
   getGems = function () {
-  // prevents page from refreshing when button is clicked
+    // prevents page from refreshing when button is clicked
     event.preventDefault()
     // Clear restaurants when searching again
     document.getElementById('row1').innerHTML = ''
     document.getElementById('row2').innerHTML = ''
 
     // Gets value from the search input
-    let searchInput = document.getElementById('searchInput').value;
+    const searchInput = document.getElementById('searchInput').value
 
     // Calls the Zomato Search API and passes in the user's search
     $.ajax({
-      type: "GET", // it's a GET request API
+      type: 'GET', // it's a GET request API
       headers: {
         'X-Zomato-API-Key': '6cc636d36121906ab8ce98c1468d462a' // only allowed non-standard header
       },
@@ -66,7 +66,7 @@ function initMap() {
         console.log(data)
 
         // image error handler, replaces missing images with default placeholder
-        function imgError(image) {
+        function imgError (image) {
           console.log(image)
           image.onerror = ''
           image.src = './assets/images/logoreal.png'
@@ -79,11 +79,11 @@ function initMap() {
           if (data.restaurants[i].restaurant.user_rating.aggregate_rating > 3 && data.restaurants[i].restaurant.user_rating.votes < 40) {
             // Checks that the div row1 has less than 4 cards, if it has 4 the next 4 cards are added to row 2 with the else statement
             if (document.getElementById('row1').childElementCount < 4) {
-              let row = (document.getElementById('row1'))
-              let gemElem = document.createElement('DIV')
+              const row = (document.getElementById('row1'))
+              const gemElem = document.createElement('DIV')
               row.appendChild(gemElem)
-              gemElem.setAttribute("id", `card${i}`)
-              gemElem.classList.add("col", "s12", "m3")
+              gemElem.setAttribute('id', `card${i}`)
+              gemElem.classList.add('col', 's12', 'm3')
               gemElem.innerHTML = `
             <div class="card z-depth-2" id="restauraunt${i}">
               <div class="card-image">
@@ -103,8 +103,8 @@ function initMap() {
               row = (document.getElementById('row2'))
               gemElem = document.createElement('DIV')
               row.appendChild(gemElem)
-              gemElem.setAttribute("id", `card${i}`)
-              gemElem.classList.add("col", "s12", "m3")
+              gemElem.setAttribute('id', `card${i}`)
+              gemElem.classList.add('col', 's12', 'm3')
               gemElem.innerHTML = `
               <div class="card z-depth-2" id="restauraunt${i}">
                 <div class="card-image">
@@ -122,9 +122,9 @@ function initMap() {
             }
             // Checks if restaurant has photo or not, if it does sets img source to that, if it doesn't sets img source to placeholder
             if (data.restaurants[i].restaurant.photo_count === 0 || data.restaurants[i].restaurant.thumb === '' || data.restaurants[i].restaurant.photos[0].photo.url.includes('instagram')) {
-              document.getElementById(`img${i}`).src = "Assets/images/placeholder_1000px.png";
+              document.getElementById(`img${i}`).src = 'Assets/images/placeholder_1000px.png'
             } else {
-              document.getElementById(`img${i}`).src = data.restaurants[i].restaurant.photos[0].photo.url;
+              document.getElementById(`img${i}`).src = data.restaurants[i].restaurant.photos[0].photo.url
             }
             $('#searchInput').value = ''
           }
@@ -146,13 +146,12 @@ function initMap() {
   })
 
   document.getElementById('searchInput').addEventListener('keypress', function () {
-
-    let key = event.keyCode
+    const key = event.keyCode
     if (key === 13 && document.getElementById('searchInput').value !== '') {
       getGems()
     }
   })
-// END OF ZOMATO API
+  // END OF ZOMATO API
 }
 // END OF GEOLOCATION
 document.getElementById('savedGem').addEventListener('click', () => {
@@ -165,7 +164,7 @@ document.getElementById('savedGem').addEventListener('click', () => {
     for (i = 0; i < favoriteArray.length; i++) {
       console.log(i)
       $.ajax({
-        type: "GET", // it's a GET request API
+        type: 'GET', // it's a GET request API
         headers: {
           'X-Zomato-API-Key': '6cc636d36121906ab8ce98c1468d462a' // only allowed non-standard header
         },
@@ -180,11 +179,11 @@ document.getElementById('savedGem').addEventListener('click', () => {
           // Checks that the div row1 has less than 4 cards, if it has 4 the next 4 cards are added to row 2 with the else statement
           if (document.getElementById('row1').childElementCount < 4) {
             console.log(i)
-            let row = (document.getElementById('row1'))
-            let gemElem = document.createElement('div')
+            const row = (document.getElementById('row1'))
+            const gemElem = document.createElement('div')
             row.appendChild(gemElem)
-            gemElem.setAttribute("id", `card`)
-            gemElem.classList.add("col", "s12", "m3")
+            gemElem.setAttribute('id', 'card')
+            gemElem.classList.add('col', 's12', 'm3')
             gemElem.innerHTML = `
               <div class="card z-depth-2" id="restauraunt">
                 <div class="card-image">
@@ -202,9 +201,9 @@ document.getElementById('savedGem').addEventListener('click', () => {
           } else {
             row = (document.getElementById('row2'))
             gemElem = document.createElement('DIV')
-            row.appendChild(gemElem);
-            gemElem.setAttribute("id", `card`)
-            gemElem.classList.add("col", "s12", "m3")
+            row.appendChild(gemElem)
+            gemElem.setAttribute('id', 'card')
+            gemElem.classList.add('col', 's12', 'm3')
             gemElem.innerHTML = `
                 <div class="card z-depth-2" id="restauraunt">
                   <div class="card-image">
@@ -221,7 +220,7 @@ document.getElementById('savedGem').addEventListener('click', () => {
           }
           // Checks if restaurant has photo or not, if it does sets img source to that, if it doessets img source to placeholder
           if (data.photo_count === 0) {
-            document.getElementById(data.name).src = "Assets/placeholder_Green_1000px.png"
+            document.getElementById(data.name).src = 'Assets/placeholder_Green_1000px.png'
           } else {
             document.getElementById(data.name).src = data.photos[0].photo.url
           }
