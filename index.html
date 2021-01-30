@@ -15,26 +15,29 @@
 <body>
   <!-- content of homepage, designed using grid system -->
   <div class="container">
-  <!-- div below does not have a head div, it is keeping elements the length of the page  -->
+    <!-- div below does not have a head div, it is keeping elements the length of the page  -->
   </div>
   <!-- header -->
   <section class="header z-depth-2">
     <div class="row logo">
       <div class="col s12 m12 colLogo">
-        <img class="littleGemLogo responsive-img" src="./Assets/images/logo_head.png" alt="Little Gems surrounded by hand drawn stars">
+        <img class="littleGemLogo responsive-img" src="./Assets/images/logo_head.png"
+          alt="Little Gems surrounded by hand drawn stars">
       </div>
     </div>
-  <!-- search bar & saved items-->
+    <!-- search bar & saved items-->
     <div class="row searchBarBtn">
       <div class="col s10 m10 colsearch">
         <form onsubmit="enterKey(event)">
           <div id="search">
-            <input type="text" placeholder="Take Me to Nearby Little Gems" name="search" class="searchBar" id="searchInput">
-            <button class="btn waves-effect waves-light" type="button" id="button" name="action"><i class="material-icons">send</i></button>
+            <input type="text" placeholder="Take Me to Nearby Little Gems" name="search" class="searchBar"
+              id="searchInput">
+            <button class="btn waves-effect waves-light" type="button" id="button" name="action"><i
+                class="material-icons">send</i></button>
           </div>
         </form>
-      </div>  
-        <!-- button for saved items -->
+      </div>
+      <!-- button for saved items -->
       <div class="col s2 m2 colsearch">
         <div>
           <a id="savedGem" class="waves-effect waves-light btn savedGem">saved gems</a>
@@ -46,16 +49,16 @@
   <div class="divider"></div>
   <div class="section aboutLittleGems z-depth-2">
     <p class="one">LITTLE GEMS HELPS YOU FIND GREAT LOCAL FOOD YOU MIGHT OTHERWISE OVERLOOK</p>
-    <p class="two">HOW IT WORKS: Using your location, Little Gems searches for local restaurants rated 3 stars or higher but which have a low amount of reviews.
+    <p class="two">HOW IT WORKS: Using your location, Little Gems searches for local restaurants rated 3 stars or higher
+      but which have a low amount of reviews.
     </p>
   </div>
   <div class="divider"></div>
   <!-- div for map -->
   <div class="section geoLocation z-depth-2" id="map"></div>
   <div class="divider"></div>
-  <!-- divs for restaurant cards -->
-  <div class="row" id="row1"></div>
-  <div class="row" id="row2"></div>
+  <!-- div for restaurant cards -->
+  <div id="resultsContainer"></div>
   <!-- closing div for the container -->
   </div>
 
@@ -66,8 +69,7 @@
   <!-- <script src="./Assets/JS_Libs/searchBtn.js"></script> -->
   <!-- <script src="./Assets/JS_Libs/enterKey.js"></script> -->
   <script src="script.js"></script>
-  <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_o4Gml0gTtl-ZgYueFm0CMO0ievhuNqE&callback=initMap">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_o4Gml0gTtl-ZgYueFm0CMO0ievhuNqE&callback=initMap">
   // async defer
   </script>
 

@@ -102,7 +102,7 @@ form-inline button {
 /* formatting for the cards containing restaurant information */
 
 .restaurantCards {
-  margin-top: 10px;
+  margin: 10px 20px 10px 20px;
 }
 
 .card-title {
@@ -122,4 +122,9 @@ form-inline button {
 .card-content2 {
   font-family: Courier, monospace;
   background-color: #ACE1FF;
+}
+
+#resultsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 256px);
 }
