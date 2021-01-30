@@ -1,3 +1,6 @@
+// Gets value from the search input
+const searchInput = document.getElementById('searchInput').value
+
 // Functions below apply to geoLocation (google map API)
 const userPosition = {
   lat: 0,
@@ -48,7 +51,7 @@ function generateRestaurant(r, i) {
 }
 
 // empty array to later store saved restaurants in local storage
-let favoriteArray = []
+const favoriteArray = []
 
 // collect restaurant's unique ID, stores it in array, and then saves array to local storage
 function saveRestaurant() {
@@ -60,7 +63,6 @@ function saveRestaurant() {
 
 // Initialize and add the map
 function initMap() {
-
   function success(position) {
     userPosition.lat = position.coords.latitude
     userPosition.lng = position.coords.longitude
@@ -160,17 +162,37 @@ async function retrieveSaved() {
 // Attach Event Handlers
 document.getElementById('savedGem').addEventListener('click', retrieveSaved)
 
+function clearInput() {
+  document.getElementById('searchInput').value = ''
+}
+
+const alert = document.getElementById('alert')
+
+function scrollAlert() {
+  alert.textContent = 'Scroll down to see your results!'
+}
+
+function fadeAlert() {
+  setTimeout(function () { alert.style.display = 'none' }, 3000); return false
+}
+
 document.getElementById('button').addEventListener('click', function () {
-  if (document.getElementById('searchInput').value !== '') {
+  if (searchInput.value !== '') {
     getGems()
+    clearInput()
+    scrollAlert()
+    fadeAlert()
   } else {
     console.log('Enter a search!')
   }
 })
 
-document.getElementById('searchInput').addEventListener('keypress', function () {
+searchInput.addEventListener('keypress', function (event) {
   const key = event.keyCode
-  if (key === 13 && document.getElementById('searchInput').value !== '') {
+  if (key === 13 && searchInput.value !== '') {
     getGems()
+    clearInput()
+    scrollAlert()
+    fadeAlert()
   }
 })

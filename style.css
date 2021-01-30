@@ -128,3 +128,9 @@ form-inline button {
   display: grid;
   grid-template-columns: repeat(auto-fill, 256px);
 }
+
+#alert {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+}
