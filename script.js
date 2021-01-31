@@ -16,14 +16,14 @@ const greenville = {
 }
 
 // image error handler, replaces missing images with default placeholder
-function imgError(image) {
+function imgError (image) {
   console.log(image)
   image.onerror = ''
   image.src = './assets/images/logoreal.png'
   return true
 }
 
-function generateRestaurant(r, i) {
+function generateRestaurant (r, i) {
   const gemElem = document.createElement('div')
   gemElem.setAttribute('id', `card${i}`)
   gemElem.classList.add('restaurantResult')
@@ -54,7 +54,7 @@ function generateRestaurant(r, i) {
 const favoriteArray = []
 
 // collect restaurant's unique ID, stores it in array, and then saves array to local storage
-function saveRestaurant() {
+function saveRestaurant () {
   const restaurantID = event.target.id
   favoriteArray.push(restaurantID)
   console.log(restaurantID)
@@ -62,8 +62,8 @@ function saveRestaurant() {
 }
 
 // Initialize and add the map
-function initMap() {
-  function success(position) {
+function initMap () {
+  function success (position) {
     userPosition.lat = position.coords.latitude
     userPosition.lng = position.coords.longitude
     // The map, centered at user position
@@ -72,7 +72,8 @@ function initMap() {
     // The marker, positioned at user position
     const marker = new google.maps.Marker({ position: userPosition, map: map })
   }
-  function error() {
+
+  function error () {
     // Update user position
     userPosition.lat = greenville.lat
     userPosition.lng = greenville.lng
@@ -88,7 +89,7 @@ function initMap() {
 }
 
 // Retrieve restaurants that match the search criteria
-async function getGems() {
+async function getGems (event) {
   // prevents page from refreshing when button is clicked
   event.preventDefault()
 
@@ -122,9 +123,14 @@ async function getGems() {
     .filter(r => r.restaurant.user_rating.aggregate_rating > 3 && r.restaurant.user_rating.votes < 40)
     .slice(0, 8)
     .map((r, i) => rContainer.appendChild(generateRestaurant(r.restaurant, i)))
+
+  document.getElementById('searchInput').value = ''
+  const alert = document.getElementById('alert')
+  alert.textContent = 'Scroll down to see your results!'
+  setTimeout(function () { alert.style.display = 'none' }, 3000); return false
 }
 
-async function retrieveSaved() {
+async function retrieveSaved () {
   // Grab references to container
   const rContainer = document.getElementById('resultsContainer')
 
@@ -162,26 +168,9 @@ async function retrieveSaved() {
 // Attach Event Handlers
 document.getElementById('savedGem').addEventListener('click', retrieveSaved)
 
-function clearInput() {
-  document.getElementById('searchInput').value = ''
-}
-
-const alert = document.getElementById('alert')
-
-function scrollAlert() {
-  alert.textContent = 'Scroll down to see your results!'
-}
-
-function fadeAlert() {
-  setTimeout(function () { alert.style.display = 'none' }, 3000); return false
-}
-
 document.getElementById('button').addEventListener('click', function () {
   if (searchInput.value !== '') {
     getGems()
-    clearInput()
-    scrollAlert()
-    fadeAlert()
   } else {
     console.log('Enter a search!')
   }
@@ -191,8 +180,5 @@ searchInput.addEventListener('keypress', function (event) {
   const key = event.keyCode
   if (key === 13 && searchInput.value !== '') {
     getGems()
-    clearInput()
-    scrollAlert()
-    fadeAlert()
   }
 })
