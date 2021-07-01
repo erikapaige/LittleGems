@@ -1,7 +1,7 @@
 // Gets value from the search input
 const searchInput = document.getElementById('searchInput').value
 const googleKey = config.GOOGLEMAPS_API_KEY
-const zomatoKey = config.Zomato-API-Key
+const zomatoKey = config.Zomato_API_Key
 
 // Functions below apply to geoLocation (google map API)
 const userPosition = {
@@ -18,14 +18,14 @@ const greenville = {
 }
 
 // image error handler, replaces missing images with default placeholder
-function imgError (image) {
+function imgError(image) {
   console.log(image)
   image.onerror = ''
   image.src = './assets/images/logoreal.png'
   return true
 }
 
-function generateRestaurant (r, i) {
+function generateRestaurant(r, i) {
   const gemElem = document.createElement('div')
   gemElem.setAttribute('id', `card${i}`)
   gemElem.classList.add('restaurantResult')
@@ -56,7 +56,7 @@ function generateRestaurant (r, i) {
 const favoriteArray = []
 
 // collect restaurant's unique ID, stores it in array, and then saves array to local storage
-function saveRestaurant () {
+function saveRestaurant() {
   const restaurantID = event.target.id
   favoriteArray.push(restaurantID)
   console.log(restaurantID)
@@ -64,8 +64,8 @@ function saveRestaurant () {
 }
 
 // Initialize and add the map
-function initMap () {
-  function success (position) {
+function initMap() {
+  function success(position) {
     userPosition.lat = position.coords.latitude
     userPosition.lng = position.coords.longitude
     // The map, centered at user position
@@ -75,7 +75,7 @@ function initMap () {
     const marker = new google.maps.Marker({ position: userPosition, map: map })
   }
 
-  function error () {
+  function error() {
     // Update user position
     userPosition.lat = greenville.lat
     userPosition.lng = greenville.lng
@@ -91,7 +91,7 @@ function initMap () {
 }
 
 // Retrieve restaurants that match the search criteria
-async function getGems () {
+async function getGems() {
   // prevents page from refreshing when button is clicked
   event.preventDefault()
 
@@ -105,7 +105,7 @@ async function getGems () {
   const searchInput = document.getElementById('searchInput').value
 
   const headers = {
-    'X-Zomato-API-Key': zomatoKey
+    'X-Zomato-API-Key': 'cc636d36121906ab8ce98c1468d462a'
   }
   const url = `https://developers.zomato.com/api/v2.1/search?q=${searchInput}&radius=40233&?count=50&lat=${userPosition.lat}&lon=${userPosition.lng}`
 
@@ -132,7 +132,7 @@ async function getGems () {
   setTimeout(function () { alert.style.display = 'none' }, 3000); return false
 }
 
-async function retrieveSaved () {
+async function retrieveSaved() {
   // Grab references to container
   const rContainer = document.getElementById('resultsContainer')
 
@@ -145,7 +145,7 @@ async function retrieveSaved () {
   // Query restaurant data
 
   const headers = new Headers({
-    'X-Zomato-API-Key': zomatoKey
+    'X-Zomato-API-Key': 'cc636d36121906ab8ce98c1468d462a' // only allowed non-standard header
   })
 
   // Function that returns a single query promise given a resId
