@@ -1,5 +1,7 @@
 // Gets value from the search input
 const searchInput = document.getElementById('searchInput').value
+const googleKey = config.GOOGLEMAPS_API_KEY
+const zomatoKey = config.Zomato-API-Key
 
 // Functions below apply to geoLocation (google map API)
 const userPosition = {
@@ -89,7 +91,7 @@ function initMap () {
 }
 
 // Retrieve restaurants that match the search criteria
-async function getGems (event) {
+async function getGems () {
   // prevents page from refreshing when button is clicked
   event.preventDefault()
 
@@ -103,7 +105,7 @@ async function getGems (event) {
   const searchInput = document.getElementById('searchInput').value
 
   const headers = {
-    'X-Zomato-API-Key': '6cc636d36121906ab8ce98c1468d462a'
+    'X-Zomato-API-Key': zomatoKey
   }
   const url = `https://developers.zomato.com/api/v2.1/search?q=${searchInput}&radius=40233&?count=50&lat=${userPosition.lat}&lon=${userPosition.lng}`
 
@@ -143,7 +145,7 @@ async function retrieveSaved () {
   // Query restaurant data
 
   const headers = new Headers({
-    'X-Zomato-API-Key': '6cc636d36121906ab8ce98c1468d462a'
+    'X-Zomato-API-Key': zomatoKey
   })
 
   // Function that returns a single query promise given a resId
@@ -176,7 +178,7 @@ document.getElementById('button').addEventListener('click', function () {
   }
 })
 
-searchInput.addEventListener('keypress', function (event) {
+document.getElementById('searchInput').addEventListener('keypress', function (event) {
   const key = event.keyCode
   if (key === 13 && searchInput.value !== '') {
     getGems()
