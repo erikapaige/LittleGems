@@ -1,7 +1,7 @@
 // Gets value from the search input
 const searchInput = document.getElementById('searchInput').value
-const googleKey = config.GOOGLEMAPS_API_KEY
-const zomatoKey = config.Zomato_API_Key
+// const googleKey = config.GOOGLEMAPS_API_KEY
+// const zomatoKey = config.Zomato_API_Key
 
 // Functions below apply to geoLocation (google map API)
 const userPosition = {
